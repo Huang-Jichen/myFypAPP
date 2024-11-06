@@ -1,0 +1,266 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent">
+
+    <Button
+        android:id="@+id/btnPost"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/tableLayout7"
+        android:layout_marginTop="0dp"
+        android:text="Post a new note"
+        android:textSize="16sp"
+        android:textStyle="bold" />
+
+    <TextView
+        android:id="@+id/tvLatestNote"
+        android:layout_width="match_parent"
+        android:layout_height="200dp"
+        android:layout_below="@+id/btnPost"
+        android:layout_alignParentStart="true"
+        android:layout_marginStart="0dp"
+        android:layout_marginTop="0dp"
+        android:padding="16dp"
+        android:textSize="16sp" />
+
+    <TableLayout
+        android:id="@+id/tableLayout8"
+        android:layout_width="match_parent"
+        android:layout_height="80dp"
+        android:layout_alignParentBottom="true"
+        android:layout_marginBottom="0dp">
+
+        <TableRow
+            android:layout_width="match_parent"
+            android:layout_height="match_parent">
+
+            <TextView
+                android:id="@+id/textViewHome"
+                android:layout_width="160dp"
+                android:layout_height="match_parent"
+                android:layout_weight="1"
+                android:gravity="center_horizontal|top"
+                android:text="Home"
+                android:textColor="#838383"
+                android:textSize="24sp" />
+
+            <TextView
+                android:id="@+id/textViewMessage"
+                android:layout_width="160dp"
+                android:layout_height="match_parent"
+                android:layout_weight="1"
+                android:gravity="center|top"
+                android:text="Message"
+                android:textColor="#838383"
+                android:textSize="24sp" />
+
+            <TextView
+                android:id="@+id/textViewPersonalCenter"
+                android:layout_width="160dp"
+                android:layout_height="80dp"
+                android:layout_weight="0.5"
+                android:gravity="center|top"
+                android:text="Personal Center"
+                android:textColor="#000000"
+                android:textSize="24sp"
+                android:textStyle="bold" />
+        </TableRow>
+
+    </TableLayout>
+
+    <TableLayout
+        android:id="@+id/tableLayout3"
+        android:layout_width="match_parent"
+        android:layout_height="80dp">
+
+        <TableRow
+            android:layout_width="match_parent"
+            android:layout_height="match_parent" />
+
+        <TableRow
+            android:layout_width="match_parent"
+            android:layout_height="match_parent" />
+
+        <TableRow
+            android:layout_width="match_parent"
+            android:layout_height="match_parent" />
+
+        <TableRow
+            android:layout_width="match_parent"
+            android:layout_height="match_parent" />
+    </TableLayout>
+
+    <TableLayout
+        android:id="@+id/tableLayout4"
+        android:layout_width="match_parent"
+        android:layout_height="120dp"
+        android:layout_below="@+id/tableLayout3"
+        android:layout_marginTop="0dp">
+
+        <TableRow
+            android:layout_width="match_parent"
+            android:layout_height="match_parent">
+
+            <TextView
+                android:id="@+id/textView18"
+                android:layout_width="10dp"
+                android:layout_height="120dp" />
+
+            <ImageView
+                android:id="@+id/imageView"
+                android:layout_width="120dp"
+                android:layout_height="wrap_content"
+                app:srcCompat="@drawable/headshot" />
+
+            <TableLayout
+                android:layout_width="match_parent"
+                android:layout_height="match_parent">
+
+                <TableRow
+                    android:layout_width="match_parent"
+                    android:layout_height="60dp">
+
+                    <TextView
+                        android:id="@+id/textView15"
+                        android:layout_width="102dp"
+                        android:layout_height="60dp"
+                        android:gravity="center_horizontal|center_vertical"
+                        android:text="UserName"
+                        android:textSize="16sp"
+                        android:textStyle="bold" />
+                </TableRow>
+
+                <TableRow
+                    android:layout_width="match_parent"
+                    android:layout_height="60dp">
+
+                    <TextView
+                        android:id="@+id/textView16"
+                        android:layout_width="wrap_content"
+                        android:layout_height="60dp"
+                        android:gravity="center_horizontal"
+                        android:text="UserID" />
+                </TableRow>
+
+            </TableLayout>
+
+        </TableRow>
+
+    </TableLayout>
+
+    <TableLayout
+        android:id="@+id/tableLayout5"
+        android:layout_width="match_parent"
+        android:layout_height="60dp"
+        android:layout_below="@+id/tableLayout4"
+        android:layout_marginTop="0dp">
+
+        <TableRow
+            android:layout_width="match_parent"
+            android:layout_height="match_parent">
+
+            <TextView
+                android:id="@+id/textView19"
+                android:layout_width="65dp"
+                android:layout_height="60dp"
+                android:gravity="center_horizontal|center_vertical"
+                android:text="Follows" />
+
+            <TextView
+                android:id="@+id/textView20"
+                android:layout_width="65dp"
+                android:layout_height="match_parent"
+                android:gravity="center_horizontal|center_vertical"
+                android:text="Followers" />
+
+            <TextView
+                android:id="@+id/textView21"
+                android:layout_width="65dp"
+                android:layout_height="match_parent"
+                android:gravity="center_horizontal|center_vertical"
+                android:text="Like Counts" />
+
+            <TextView
+                android:id="@+id/textView22"
+                android:layout_width="219dp"
+                android:layout_height="60dp"
+                android:gravity="center|right"
+                android:text="Settings    " />
+        </TableRow>
+
+    </TableLayout>
+
+    <TableLayout
+        android:id="@+id/tableLayout6"
+        android:layout_width="match_parent"
+        android:layout_height="20dp"
+        android:layout_below="@+id/tableLayout5"
+        android:layout_marginTop="0dp">
+
+        <TableRow
+            android:layout_width="match_parent"
+            android:layout_height="match_parent" />
+
+        <TableRow
+            android:layout_width="match_parent"
+            android:layout_height="match_parent" />
+
+        <TableRow
+            android:layout_width="match_parent"
+            android:layout_height="match_parent" />
+
+        <TableRow
+            android:layout_width="match_parent"
+            android:layout_height="match_parent" />
+    </TableLayout>
+
+    <TableLayout
+        android:id="@+id/tableLayout7"
+        android:layout_width="match_parent"
+        android:layout_height="80dp"
+        android:layout_below="@+id/tableLayout6"
+        android:layout_marginTop="0dp">
+
+        <TableRow
+            android:layout_width="match_parent"
+            android:layout_height="match_parent">
+
+            <TextView
+                android:id="@+id/textView23"
+                android:layout_width="80dp"
+                android:layout_height="match_parent"
+                android:gravity="center_horizontal|center_vertical"
+                android:text="Notes"
+                android:textSize="16sp"
+                android:textStyle="bold" />
+
+            <TextView
+                android:id="@+id/textView24"
+                android:layout_width="80dp"
+                android:layout_height="match_parent"
+                android:gravity="center_horizontal|center_vertical"
+                android:text="Likes"
+                android:textSize="16sp" />
+
+            <TextView
+                android:id="@+id/textView25"
+                android:layout_width="80dp"
+                android:layout_height="80dp"
+                android:gravity="center_horizontal|center_vertical"
+                android:text="Saves"
+                android:textSize="16sp" />
+        </TableRow>
+
+    </TableLayout>
+
+    <androidx.recyclerview.widget.RecyclerView
+        android:id="@+id/recyclerView1"
+        android:layout_width="match_parent"
+        android:layout_height="132dp"
+        android:layout_above="@+id/tableLayout8"
+        android:layout_below="@+id/tvLatestNote"
+        android:layout_marginTop="0dp"
+        android:layout_marginBottom="0dp" />
+</RelativeLayout>
