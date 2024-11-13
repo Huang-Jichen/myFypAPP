@@ -32,5 +32,7 @@ public class Message extends AppCompatActivity {
                 startActivity(intent);
             }
         });
+
+
     }
 }

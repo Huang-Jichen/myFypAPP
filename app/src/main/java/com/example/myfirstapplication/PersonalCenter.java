@@ -29,6 +29,7 @@ public class PersonalCenter extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.personalcenter);
 
+        //切换到主页界面
         tvHome = findViewById(R.id.textViewHome);
         tvHome.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -38,6 +39,7 @@ public class PersonalCenter extends AppCompatActivity {
             }
         });
 
+        //切换到消息界面
         tvMessage = findViewById(R.id.textViewMessage);
         tvMessage.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -47,6 +49,7 @@ public class PersonalCenter extends AppCompatActivity {
             }
         });
 
+        //发表笔记按钮绑定监听
         btnPost = findViewById(R.id.btnPost);
         btnPost.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -58,11 +61,12 @@ public class PersonalCenter extends AppCompatActivity {
         });
 
         tvLatestNote = findViewById(R.id.tvLatestNote);
-        displayNotes();
 
         recyclerView = findViewById(R.id.recyclerView1);
         notesAdapter = new NotesAdapter(NoteManager.getInstance().getNotes());
         recyclerView.setAdapter(notesAdapter);
+
+        displayNotes();
     }
 
     // 启动NewNoteActivity并处理返回结果
@@ -77,12 +81,24 @@ public class PersonalCenter extends AppCompatActivity {
         if (resultCode == RESULT_OK && data != null) {
             String newNoteContent = data.getStringExtra("NEW_NOTE_CONTENT");
             if (newNoteContent != null) {
-                tvLatestNote.setText(newNoteContent);
-                tvLatestNote.setVisibility(View.VISIBLE);
+                if (!NoteManager.getInstance().containsNote(newNoteContent)) {
+                    NoteManager.getInstance().addLatestNote(newNoteContent);
+                    notesAdapter.updateNotes(NoteManager.getInstance().getNotes());
+                }
+                // 更新tvLatestNote显示所有笔记
+                displayNotes();
             }
         }
     }
 
+    //更新UI
+
+    @Override
+    protected void onResume() {
+        super.onResume();
+    }
+
+    //展示笔记函数，在tv框内
     private void displayNotes() {
         List<String> notes = NoteManager.getInstance().getNotes();
         // 如果您使用 TextView 显示所有笔记
@@ -94,18 +110,6 @@ public class PersonalCenter extends AppCompatActivity {
         tvLatestNote.setVisibility(View.VISIBLE);
     }
 
-
-
 }
-
-    /*@Override
-    public boolean onCreateOptionsMenu(Menu menu){
-        menu.add(1,1,1,"发现好友");
-        menu.add(1,2,2,"发表动态");
-        menu.add(1,3,3,"设置");
-        menu.setGroupCheckable(1,true,false);
-        menu.setGroupVisible(1,true);
-        return super.onCreateOptionsMenu(menu);
-    }*/
 
 
