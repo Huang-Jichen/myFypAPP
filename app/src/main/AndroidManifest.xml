@@ -18,16 +18,22 @@
         <activity
             android:name=".LoginActivity"
             android:exported="true" />
-        <activity android:name=".NewNoteActivity"
+        <activity
+            android:name=".RegisterActivity"
+            android:exported="true" />
+        <activity
+            android:name=".page.NoteDetailActivity"
+            android:exported="true" />
+        <activity android:name=".page.NewNote"
             android:exported="true"/>
         <activity
-            android:name=".Message"
+            android:name=".page.Message"
             android:exported="false" />
         <activity
-            android:name=".PersonalCenter"
+            android:name=".page.PersonalCenter"
             android:exported="false" />
         <activity
-            android:name=".MainActivity"
+            android:name=".page.MainActivity"
             android:exported="true">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />

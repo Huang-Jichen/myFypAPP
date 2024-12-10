@@ -1,6 +1,7 @@
 <?xml version="1.0" encoding="utf-8"?>
 <RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent">
 
@@ -13,17 +14,6 @@
         android:text="Post a new note"
         android:textSize="16sp"
         android:textStyle="bold" />
-
-    <TextView
-        android:id="@+id/tvLatestNote"
-        android:layout_width="match_parent"
-        android:layout_height="300dp"
-        android:layout_below="@+id/btnPost"
-        android:layout_alignParentStart="true"
-        android:layout_marginStart="0dp"
-        android:layout_marginTop="0dp"
-        android:padding="16dp"
-        android:textSize="16sp" />
 
     <TableLayout
         android:id="@+id/tableLayout8"
@@ -112,7 +102,7 @@
                 android:id="@+id/imageView"
                 android:layout_width="120dp"
                 android:layout_height="wrap_content"
-                app:srcCompat="@drawable/headshot" />
+                app:srcCompat="@drawable/img" />
 
             <TableLayout
                 android:layout_width="match_parent"
@@ -258,9 +248,13 @@
     <androidx.recyclerview.widget.RecyclerView
         android:id="@+id/recyclerView1"
         android:layout_width="match_parent"
-        android:layout_height="132dp"
+        android:layout_height="match_parent"
         android:layout_above="@+id/tableLayout8"
-        android:layout_below="@+id/tvLatestNote"
+        android:layout_below="@id/btnPost"
         android:layout_marginTop="0dp"
-        android:layout_marginBottom="0dp" />
+        android:layout_marginBottom="0dp"
+        app:layoutManager="androidx.recyclerview.widget.StaggeredGridLayoutManager"
+        app:spanCount="2"
+        tools:listitem="@layout/note_item" />
+
 </RelativeLayout>

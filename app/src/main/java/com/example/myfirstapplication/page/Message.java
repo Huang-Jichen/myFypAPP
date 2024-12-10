@@ -1,4 +1,4 @@
-package com.example.myfirstapplication;
+package com.example.myfirstapplication.page;
 
 import android.annotation.SuppressLint;
 import android.content.Intent;
@@ -7,6 +7,8 @@ import android.view.View;
 import android.widget.TextView;
 
 import androidx.appcompat.app.AppCompatActivity;
+
+import com.example.myfirstapplication.R;
 
 public class Message extends AppCompatActivity {
     TextView tvHome;

@@ -4,24 +4,37 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".NewNoteActivity">
+    tools:context=".page.NewNote">
+
+    <EditText
+        android:id="@+id/etNote_title"
+        android:layout_width="0dp"
+        android:layout_height="60dp"
+        android:gravity="top|start"
+        android:hint="Add Title"
+        android:inputType="textMultiLine"
+        android:minLines="10"
+        android:padding="16dp"
+        android:textSize="20sp"
+        android:textStyle="bold"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.0"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/btnChooseImage" />
 
     <EditText
         android:id="@+id/etNote"
-        android:layout_width="411dp"
-        android:layout_height="193dp"
-        android:layout_marginBottom="136dp"
+        android:layout_width="495dp"
+        android:layout_height="530dp"
         android:gravity="top|start"
         android:hint="Share an Update"
         android:inputType="textMultiLine"
         android:minLines="10"
         android:padding="16dp"
-        app:layout_constraintBottom_toTopOf="@+id/btnPost"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.0"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/btnChooseImage"
-        app:layout_constraintVertical_bias="0.0" />
+        app:layout_constraintTop_toBottomOf="@+id/etNote_title" />
 
     <ImageView
         android:id="@+id/ivNoteImage"
@@ -53,6 +66,6 @@
         app:layout_constraintHorizontal_bias="0.0"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/btnChooseImage"
-        app:layout_constraintVertical_bias="0.385" />
+        app:layout_constraintVertical_bias="0.852" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>
