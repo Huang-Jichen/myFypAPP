@@ -5,16 +5,6 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent">
 
-    <Button
-        android:id="@+id/btnPost"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:layout_below="@+id/tableLayout7"
-        android:layout_marginTop="0dp"
-        android:text="Post a new note"
-        android:textSize="16sp"
-        android:textStyle="bold" />
-
     <TableLayout
         android:id="@+id/tableLayout8"
         android:layout_width="match_parent"
@@ -28,33 +18,55 @@
 
             <TextView
                 android:id="@+id/textViewHome"
-                android:layout_width="160dp"
+                android:layout_width="0dp"
                 android:layout_height="match_parent"
                 android:layout_weight="1"
-                android:gravity="center_horizontal|top"
+                android:gravity="center|center_horizontal"
                 android:text="Home"
                 android:textColor="#838383"
-                android:textSize="24sp" />
+                android:textSize="16sp"
+                android:textStyle="bold"/>
+
+            <TextView
+                android:id="@+id/TextViewShopping"
+                android:layout_width="0dp"
+                android:layout_height="match_parent"
+                android:layout_weight="1"
+                android:gravity="center|center_horizontal"
+                android:text="Shopping"
+                android:textColor="#838383"
+                android:textSize="16sp"
+                android:textStyle="bold"/>
+
+            <ImageView
+                android:id="@+id/postNewNote"
+                android:layout_width="0dp"
+                android:layout_height="match_parent"
+                android:layout_weight="1"
+                android:padding="5dp"
+                android:scaleType="fitXY"
+                app:srcCompat="@drawable/baseline_add_box_24" />
 
             <TextView
                 android:id="@+id/textViewMessage"
-                android:layout_width="160dp"
+                android:layout_width="0dp"
                 android:layout_height="match_parent"
                 android:layout_weight="1"
-                android:gravity="center|top"
+                android:gravity="center|center_horizontal"
                 android:text="Message"
                 android:textColor="#838383"
-                android:textSize="24sp" />
+                android:textSize="16sp"
+                android:textStyle="bold"/>
 
             <TextView
                 android:id="@+id/textViewPersonalCenter"
-                android:layout_width="160dp"
+                android:layout_width="0dp"
                 android:layout_height="80dp"
-                android:layout_weight="0.5"
-                android:gravity="center|top"
-                android:text="Personal Center"
+                android:layout_weight="1"
+                android:gravity="center|center_horizontal"
+                android:text="Me"
                 android:textColor="#000000"
-                android:textSize="24sp"
+                android:textSize="16sp"
                 android:textStyle="bold" />
         </TableRow>
 
@@ -209,7 +221,7 @@
     <TableLayout
         android:id="@+id/tableLayout7"
         android:layout_width="match_parent"
-        android:layout_height="80dp"
+        android:layout_height="60dp"
         android:layout_below="@+id/tableLayout6"
         android:layout_marginTop="0dp">
 
@@ -237,7 +249,7 @@
             <TextView
                 android:id="@+id/textView25"
                 android:layout_width="80dp"
-                android:layout_height="80dp"
+                android:layout_height="60dp"
                 android:gravity="center_horizontal|center_vertical"
                 android:text="Saves"
                 android:textSize="16sp" />
@@ -250,7 +262,7 @@
         android:layout_width="match_parent"
         android:layout_height="match_parent"
         android:layout_above="@+id/tableLayout8"
-        android:layout_below="@id/btnPost"
+        android:layout_below="@+id/tableLayout7"
         android:layout_marginTop="0dp"
         android:layout_marginBottom="0dp"
         app:layoutManager="androidx.recyclerview.widget.StaggeredGridLayoutManager"

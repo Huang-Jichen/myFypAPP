@@ -1,4 +1,4 @@
-package com.example.myfirstapplication;
+package com.example.myfirstapplication.page;
 
 import android.os.Bundle;
 import android.view.View;
@@ -9,6 +9,7 @@ import android.widget.Toast;
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.appcompat.widget.Toolbar;
 
+import com.example.myfirstapplication.R;
 import com.example.myfirstapplication.db.UserDbHelper;
 
 public class RegisterActivity extends AppCompatActivity {

@@ -1,8 +1,10 @@
 package com.example.myfirstapplication.page;
 
+import android.annotation.SuppressLint;
 import android.content.Intent;
 import android.graphics.Bitmap;
 import android.graphics.BitmapFactory;
+import android.net.Uri;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.Button;
@@ -14,6 +16,7 @@ import androidx.recyclerview.widget.RecyclerView;
 
 import com.example.myfirstapplication.adapter.NoteListAdapter;
 import com.example.myfirstapplication.R;
+import com.example.myfirstapplication.db.ImagePickerHelper;
 import com.example.myfirstapplication.db.NoteDbHelper;
 import com.example.myfirstapplication.pojo.NoteInfo;
 import com.example.myfirstapplication.pojo.UserInfo;
@@ -31,11 +34,13 @@ public class PersonalCenter extends AppCompatActivity {
     private ImageView headshot;
 
     //发表笔记
-    private Button btnPost;
-    NoteInfo mynoteInfo;
+    ImageView postNewNote;
+    private ImagePickerHelper imagePickerHelper;
+
     //获取用户信息
     UserInfo userInfos = UserInfo.getUserInfos();
 
+    @SuppressLint("MissingInflatedId")
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -45,7 +50,9 @@ public class PersonalCenter extends AppCompatActivity {
         tvMessage = findViewById(R.id.textViewMessage);
         myRecyclerView = findViewById(R.id.recyclerView1);
         headshot = findViewById(R.id.imageView);
-        btnPost = findViewById(R.id.btnPost);
+        imagePickerHelper = new ImagePickerHelper(this);
+        postNewNote = findViewById(R.id.postNewNote);
+        postNewNote.setOnClickListener(v -> imagePickerHelper.showChooseImageDialog());
 
         //初始化适配器
         myNoteListAdapter = new NoteListAdapter(myNoteInfoList);
@@ -67,7 +74,6 @@ public class PersonalCenter extends AppCompatActivity {
                 //跳转传递值，直接传递对象
                 //传递的对象要实现Serializable接口
                 intent.putExtra("NoteInfo", NoteInfo);
-
                 startActivity(intent);
             }
         });
@@ -91,14 +97,6 @@ public class PersonalCenter extends AppCompatActivity {
             }
         });
 
-        //发表笔记按钮绑定监听
-        btnPost.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View view) {
-                addNewNote(view);
-            }
-        });
-
         //选择头像
     }
 
@@ -111,12 +109,13 @@ public class PersonalCenter extends AppCompatActivity {
     @Override
     protected void onActivityResult(int requestCode, int resultCode, Intent data) {
         super.onActivityResult(requestCode, resultCode, data);
-        if (requestCode == 1 && resultCode == RESULT_OK && data != null) {
-            // 从data中获取传递回来的noteInfo对象并添加到列表等操作
-            NoteInfo newNoteInfo = (NoteInfo) data.getSerializableExtra("NoteInfo");
-            if (newNoteInfo != null) {
-                myNoteInfoList.add(newNoteInfo);
-                myNoteListAdapter.notifyDataSetChanged(); // 通知适配器数据改变，刷新列表显示新笔记
+        if (resultCode == RESULT_OK) {
+            if (requestCode == ImagePickerHelper.REQUEST_PICK_IMAGE && data != null) {
+                Uri selectedImage = data.getData();
+                // 跳转到新页面，并传递图片Uri
+                Intent intent = new Intent(this, NewNote.class);
+                intent.putExtra("IMAGE_URI", selectedImage.toString());
+                startActivity(intent);
             }
         }
     }

@@ -54,8 +54,6 @@ public class NoteListAdapter extends RecyclerView.Adapter<NoteListAdapter.MyHold
         Bitmap bitmap = BitmapFactory.decodeFile(noteImg_path);
         holder.IMG.setImageBitmap(bitmap);
 
-        //Glide.with(holder.itemView.getContext()).load(mynoteInfo.getImg()).into(holder.IMG);
-
         //点击事件
         holder.itemView.setOnClickListener(new View.OnClickListener() {
             @Override

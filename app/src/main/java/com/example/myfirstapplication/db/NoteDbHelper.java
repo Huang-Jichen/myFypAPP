@@ -15,6 +15,7 @@ import java.text.SimpleDateFormat;
 import java.util.ArrayList;
 import java.util.Date;
 import java.util.List;
+import java.util.TimeZone;
 
 public class NoteDbHelper extends SQLiteOpenHelper {
 
@@ -77,12 +78,27 @@ public class NoteDbHelper extends SQLiteOpenHelper {
         return insert;
     }
 
+    /*删除笔记*/
+    public int deleteNote(int noteId) {
+        // 获取SQLiteDatabase实例
+        SQLiteDatabase db = getWritableDatabase();
+        // 构建删除条件
+        String whereClause = "id = ?";
+        // 执行删除操作
+        int delete = db.delete("note_table", whereClause, new String[]{String.valueOf(noteId)});
+        db.close();
+        return delete;
+    }
+
     public String getCurrentTime() {
         // 获取当前时间
         Date now = new Date();
 
         // 创建一个SimpleDateFormat对象，指定日期时间格式
         SimpleDateFormat formatter = new SimpleDateFormat("yyyy-MM-dd HH:mm:ss");
+
+        // 指定时区为东八区（北京时间）
+        formatter.setTimeZone(TimeZone.getTimeZone("Asia/Shanghai"));
 
         // 格式化当前时间为指定格式的字符串
         return formatter.format(now);

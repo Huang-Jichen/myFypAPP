@@ -11,6 +11,9 @@ import androidx.annotation.Nullable;
 
 import com.example.myfirstapplication.pojo.UserInfo;
 
+import java.util.ArrayList;
+import java.util.List;
+
 public class UserDbHelper extends SQLiteOpenHelper {
 
     private static UserDbHelper sHelper;
@@ -75,6 +78,38 @@ public class UserDbHelper extends SQLiteOpenHelper {
         cursor.close();
         db.close();
         return userInfo;
+    }
+    /**
+     * 查询所有用户
+     */
+    @SuppressLint("Range")
+    public List<UserInfo> queryUserListData() {
+        //获取SQLiteDatabase实例
+        SQLiteDatabase db = getReadableDatabase();
+        List<UserInfo> list = new ArrayList<>();
+        // 定义列名
+        String[] columns = {
+                "user_id", // 用户ID
+                "username", // 用户名
+                "password"  // 密码
+        };
+        // 查询条件
+        String selection = null; // 查询所有记录，所以不需要条件
+        String[] selectionArgs = null; // 没有查询条件，所以不需要条件参数
+        // 排序方式
+        String sortOrder = "user_id ASC"; // 按用户ID升序排序
+        // 执行查询
+        Cursor cursor = db.query("user_table", columns, selection, selectionArgs, null, null, sortOrder);
+        while (cursor.moveToNext()) {
+            UserInfo userInfo = new UserInfo();
+            userInfo.setUser_id(cursor.getInt(cursor.getColumnIndex("user_id")));
+            userInfo.setUsername(cursor.getString(cursor.getColumnIndex("username")));
+            userInfo.setPassword(cursor.getString(cursor.getColumnIndex("password")));
+            list.add(userInfo);
+        }
+        cursor.close();
+        db.close();
+        return list;
     }
 
     public boolean isUsernameExists(String username) {

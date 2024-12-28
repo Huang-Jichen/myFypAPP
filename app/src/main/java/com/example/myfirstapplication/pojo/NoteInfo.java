@@ -14,6 +14,7 @@ public class NoteInfo implements Serializable {
     private String img;
     private String createdAt; // 创建时间
     private String updatedAt; // 修改时间
+    public static NoteInfo NoteInfos;
 
     public NoteInfo() {
     }
@@ -29,6 +30,14 @@ public class NoteInfo implements Serializable {
         this.img = img;
         this.createdAt = createdAt;
         this.updatedAt = updatedAt;
+    }
+
+    public static NoteInfo getNoteInfos() {
+        return NoteInfos;
+    }
+
+    public static void setNoteInfos(NoteInfo noteInfos) {
+        NoteInfos = noteInfos;
     }
 
     public int getSavesNumber() {

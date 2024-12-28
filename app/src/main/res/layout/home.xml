@@ -18,34 +18,56 @@
 
             <TextView
                 android:id="@+id/textViewHome"
-                android:layout_width="160dp"
+                android:layout_width="0dp"
                 android:layout_height="match_parent"
                 android:layout_weight="1"
-                android:gravity="center_horizontal"
+                android:gravity="center|center_horizontal"
                 android:text="Home"
                 android:textColor="#000000"
-                android:textSize="24sp"
+                android:textSize="16sp"
                 android:textStyle="bold" />
 
             <TextView
-                android:id="@+id/textViewMessage"
-                android:layout_width="160dp"
+                android:id="@+id/TextViewShopping"
+                android:layout_width="0dp"
                 android:layout_height="match_parent"
                 android:layout_weight="1"
-                android:gravity="center_horizontal|top"
+                android:gravity="center|center_horizontal"
+                android:text="Shopping"
+                android:textColor="#838383"
+                android:textSize="16sp"
+                android:textStyle="bold"/>
+
+            <ImageView
+                android:id="@+id/postNewNote"
+                android:layout_width="0dp"
+                android:layout_height="match_parent"
+                android:layout_weight="1"
+                android:padding="5dp"
+                android:scaleType="fitXY"
+                app:srcCompat="@drawable/baseline_add_box_24" />
+
+            <TextView
+                android:id="@+id/textViewMessage"
+                android:layout_width="0dp"
+                android:layout_height="match_parent"
+                android:layout_weight="1"
+                android:gravity="center|center_horizontal"
                 android:text="Message"
                 android:textColor="#838383"
-                android:textSize="24sp" />
+                android:textSize="16sp"
+                android:textStyle="bold"/>
 
             <TextView
                 android:id="@+id/textViewPersonalCenter"
-                android:layout_width="160dp"
+                android:layout_width="0dp"
                 android:layout_height="80dp"
-                android:layout_weight="0.5"
-                android:gravity="center|top"
-                android:text="Personal Center"
+                android:layout_weight="1"
+                android:gravity="center|center_horizontal"
+                android:text="Me"
                 android:textColor="#838383"
-                android:textSize="24sp" />
+                android:textSize="16sp"
+                android:textStyle="bold"/>
         </TableRow>
 
     </TableLayout>

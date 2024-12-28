@@ -1,4 +1,4 @@
-package com.example.myfirstapplication;
+package com.example.myfirstapplication.page;
 
 import android.content.Intent;
 import android.content.SharedPreferences;
@@ -11,8 +11,8 @@ import android.widget.Toast;
 
 import androidx.appcompat.app.AppCompatActivity;
 
+import com.example.myfirstapplication.R;
 import com.example.myfirstapplication.db.UserDbHelper;
-import com.example.myfirstapplication.page.MainActivity;
 import com.example.myfirstapplication.pojo.UserInfo;
 
 public class LoginActivity extends AppCompatActivity {
